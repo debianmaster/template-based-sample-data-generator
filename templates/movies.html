@@ -1,0 +1,24 @@
+{% for movie in movies %}
+{    
+    "movieName": "movie-{{movie.mid}}",
+    "movieId": "{{movie.mid}}",
+    "coverPage": "https://cdn3.iconfinder.com/data/icons/movie-video/512/Icon_32-256.png",
+    "songs": [
+      {% for song in movie.songs %}
+        {
+	    "singers": "Sri Soumya, Dinakar {{movie.mid}} - {{song.sid}} ",
+            "stars": " Stars {{movie.mid}} - {{song.sid}}",
+            "title": "Yem Chesthuvunna {{movie.mid}} - {{song.sid}}",
+            "url": "http://i63.in:8888/text2mp3/{{movie.mid}}st movie {{song.sid}} song",
+            "writtenBy": "Balaji"
+        }
+        {% if !loop.last %}
+	,
+	{% endif %}   
+      {% endfor %}
+    ]
+}
+{% if !loop.last %}
+,
+{% endif %}
+{% endfor %}
